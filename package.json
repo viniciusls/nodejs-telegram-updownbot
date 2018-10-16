@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-telegram-updownbot",
+  "version": "1.0.0",
+  "description": "A NodeJS bot to check if a resource is up or down and send message to a Telegram Bot when the resource is down",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viniciusls/nodejs-telegram-updownbot.git"
+  },
+  "keywords": [
+    "nodejs",
+    "bot",
+    "telegram",
+    "monitor"
+  ],
+  "author": "Vinícius Silva <vinicius768@msn.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viniciusls/nodejs-telegram-updownbot/issues"
+  },
+  "homepage": "https://github.com/viniciusls/nodejs-telegram-updownbot#readme"
+}
