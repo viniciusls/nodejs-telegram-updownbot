@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/viniciusls/nodejs-telegram-updownbot#readme",
   "dependencies": {
+    "request": "^2.88.0",
     "telegraf": "^3.24.1"
   }
 }
