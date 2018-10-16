@@ -2,7 +2,7 @@
   "name": "nodejs-telegram-updownbot",
   "version": "1.0.0",
   "description": "A NodeJS bot to check if a resource is up or down and send message to a Telegram Bot when the resource is down",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
