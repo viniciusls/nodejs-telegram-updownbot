@@ -12,11 +12,13 @@ const urls = config.monitor.urls;
 
 for (const url of urls) {
     request.get(url, (err, res, body) => {
-        if (res.statusCode === 200) {
+        if (res && res.statusCode === 200) {
             return;
         }
 
-        const message = 'The application located at ${url} is DOWN!';
+        const date = new Date();
+
+        const message = `The application located at ${url} is DOWN on ${date}!`;
         // Call telegram bot to send message alerting that the application is down!
         telegram.sendMessage(telegramConfig.chatId, message)
             .then()
