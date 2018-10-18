@@ -1,13 +1,14 @@
 const fs = require('fs');
 const ini = require('ini');
+const path = require('path');
 const request = require('request');
 const Telegram = require('telegraf/telegram');
 
 console.log('Loading function');
 
 exports.handler = async (event) => {
-    const config = ini.parse(fs.readFileSync('./config.ini', 'utf-8'));
-    const telegramConfig = ini.parse(fs.readFileSync('./telegram.ini', 'utf-8'));
+    const config = ini.parse(fs.readFileSync(path.resolve('./config.ini'), 'utf-8'));
+    const telegramConfig = ini.parse(fs.readFileSync(path.resolve('./telegram.ini'), 'utf-8'));
 
     const telegram = new Telegram(telegramConfig.token);
 
