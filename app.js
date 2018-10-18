@@ -3,6 +3,8 @@ const ini = require('ini');
 const request = require('request');
 const Telegram = require('telegraf/telegram');
 
+console.log('Loading function');
+
 exports.handler = async (event) => {
     const config = ini.parse(fs.readFileSync('./config.ini', 'utf-8'));
     const telegramConfig = ini.parse(fs.readFileSync('./telegram.ini', 'utf-8'));
