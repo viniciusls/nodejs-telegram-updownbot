@@ -6,7 +6,7 @@ const Telegram = require('telegraf/telegram');
 
 console.log('Loading function');
 
-exports.handler = async (event) => {
+exports.handler = (event, context, callback) => {
     const config = ini.parse(fs.readFileSync(path.resolve('./config.ini'), 'utf-8'));
     const telegramConfig = ini.parse(fs.readFileSync(path.resolve('./telegram.ini'), 'utf-8'));
 
@@ -15,9 +15,9 @@ exports.handler = async (event) => {
     const urls = config.monitor.urls;
 
     for (const url of urls) {
-        request.get(url, (err, res, body) => {
-            console.log(`Trying to request ${url}...`);
+        console.log(`Trying to request ${url}...`);
 
+        request.get(url, (err, res, body) => {
             if (res && res.statusCode === 200) {
                 return;
             }
@@ -31,9 +31,11 @@ exports.handler = async (event) => {
             telegram.sendMessage(telegramConfig.chatId, message)
                 .then(() => {
                     console.log('Message sent to Telegram Bot');
+                    
+                    callback(null, `Message about ${url} sent to Telegram Bot`);
                 })
                 .catch(() => {
-                    throw new InternalError('Error on sending message! Message: ${message}');
+                    callback(new InternalError('Error on sending message! Message: ${message}'));
                 });
         });
     }
